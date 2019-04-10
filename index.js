@@ -68,6 +68,9 @@ async function run() {
     `We visited ${sitesVisited}/${totalSitesCount} sites. Out of them, ${nonGatsbySiteCount} sites were not a Gatsby site and ${erroredOut} errored out when visiting it.`
       .green
   );
+
+  // fail if there are any non Gatsby sites
+  process.exit(nonGatsbySiteCount > 0 ? 1 : 0);
 }
 
 run();
